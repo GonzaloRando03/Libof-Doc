@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "module": "es6",
+      "outDir": "dist-browser",
+      "rootDir": "types",
+      "strict": true
+    },
+    "include": ["types/**/*.ts"]
+  }
+  

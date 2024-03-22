@@ -1,0 +1,26 @@
+{
+  "name": "libof-doc",
+  "version": "1.0.0",
+  "description": "Library for generating odt and doc documents for JavaScript",
+  "main": "dist-node/index.js",
+  "module": "dist-browser/index.js",
+  "types": "types/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-browser": "tsc -p tsconfig.dist-browser.json",
+    "build-node": "tsc -p tsconfig.dist-node.json",
+    "build": "npm run build-browser & npm run build-node"
+  },
+  "keywords": [
+    "Document",
+    "doc",
+    "docx",
+    "generate",
+    "msword"
+  ],
+  "author": "Gonzalo Rando Serna",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
+}
