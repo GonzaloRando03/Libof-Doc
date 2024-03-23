@@ -115,6 +115,32 @@ table.addRow(tableRow3)
 document.addElement(table)
 ```
 
+## Images
+```
+import {LibofImage} from 'libof-doc/dist-node/elements/LibofImage'
+
+const image = new LibofImage('https://midu.dev/images/tags/node.png')
+document.addElement(image)
+```
+
+## HTML
+You can insert HTML in your document :)
+
+```
+import {LibofHtml} from 'libof-doc/dist-node/elements/LibofHtml'
+
+const html = new LibofHtml('<p>this text is written in html using <b>Libof doc</b></p>')
+document.addElement(html)
+```
+
+## Download Document
+```
+//you can transform the document into a blob
+const blob = document.documentToBlob()
+
+//or you cat download the document
+document.download()
+```
 
 
   

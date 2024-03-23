@@ -1,3 +1,3 @@
-const lTab = ' &ensp; '
-const lLineBreak = ' <br> '
-const lWhiteSpace = ' &nbsp; '
+export const lTab = ' &ensp; '
+export const lLineBreak = ' <br> '
+export const lWhiteSpace = ' &nbsp; '
