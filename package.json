@@ -1,10 +1,15 @@
 {
   "name": "libof-doc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library for generating odt and doc documents for JavaScript",
   "main": "dist-node/index.js",
   "module": "dist-browser/index.js",
   "types": "types/index.ts",
+  "homepage": "https://github.com/GonzaloRando03/Libof-Doc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GonzaloRando03/Libof-Doc"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-browser": "tsc -p tsconfig.dist-browser.json",
