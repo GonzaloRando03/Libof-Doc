@@ -1,31 +1,17 @@
 # Libof Doc
 
-Library for generating odt and doc documents for JavaScript
+Library for generating odt and doc documents for JavaScript and TypeScript
 
-## Use with TypeScript
+## Create new document
 ```
-import LibofDocument from 'libof-doc/types/document/libofDocument';
-
-const document = new LibofDocument("testDocument");
-```
-
-## Use with Node Environments
-```
-import LibofDocument from 'libof-doc/dist-node/document/libofDocument';
-
-const document = new LibofDocument("testDocument");
-```
-
-## Use with ES6
-```
-import LibofDocument from 'libof-doc/dist-browser/document/libofDocument';
+import { LibofDocument } from 'libof-doc';
 
 const document = new LibofDocument("testDocument");
 ```
 
 ## Titles
 ```
-import {Lh1, Lh2, Lh3, Lh4} from 'libof-doc/dist-node/elements/components/title'
+import {Lh1, Lh2, Lh3, Lh4} from 'libof-doc'
 
 document.addElement(new Lh1("Title 1", 'blue', 'red', 'Serif'))
 document.addElement(new Lh2("Title 2"))
@@ -42,8 +28,7 @@ document.addElement(new Lh4("Title 4"))
 
 ## Text
 ```
-import {LParagraph, LTextItalic, LTextBold, LText} from 'libof-doc/dist-node/elements/components/text'
-import {lWhiteSpace, lLineBreak} from 'libof-doc/dist-node'
+import {LParagraph, LTextItalic, LTextBold, LText, lWhiteSpace, lLineBreak} from 'libof-doc'
 
 document.addElement(new LParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"))
 
@@ -59,7 +44,7 @@ document.addElement(new LText(lLineBreak))
 
 ## Lists
 ```
-import {LOrderedList, LUnorderedList} from 'libof-doc/dist-node/elements/components/list'
+import {LOrderedList, LUnorderedList} from 'libof-doc'
 
 //Simple list
 const elementList = [
@@ -83,7 +68,7 @@ document.addElement(new LUnorderedList(concatList))
 
 ## Tables
 ```
-import {LTable, LTableElement, LTableRow} from 'libof-doc/dist-node/elements/components/table'
+import {LTable, LTableElement, LTableRow} from 'libof-doc'
 
 const table = new LTable()
   
@@ -117,9 +102,9 @@ document.addElement(table)
 
 ## Images
 ```
-import {LibofImage} from 'libof-doc/dist-node/elements/LibofImage'
+import {LImage} from 'libof-doc'
 
-const image = new LibofImage('https://midu.dev/images/tags/node.png')
+const image = new LImage('https://midu.dev/images/tags/node.png')
 document.addElement(image)
 ```
 
@@ -127,9 +112,9 @@ document.addElement(image)
 You can insert HTML in your document :)
 
 ```
-import {LibofHtml} from 'libof-doc/dist-node/elements/LibofHtml'
+import {LHtml} from 'libof-doc'
 
-const html = new LibofHtml('<p>this text is written in html using <b>Libof doc</b></p>')
+const html = new LHtml('<p>this text is written in html using <b>Libof doc</b></p>')
 document.addElement(html)
 ```
 
@@ -141,6 +126,7 @@ const blob = document.documentToBlob()
 //or you cat download the document
 document.download()
 ```
+## Viewing the document
 
 
   

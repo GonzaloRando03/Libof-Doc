@@ -1,6 +1,6 @@
 import { LibofElement } from "../elements/libofElement"
 
-class LibofDocument {
+class LibofBaseDocument {
     name:string
     content:string
     elements:LibofElement[]
@@ -47,4 +47,4 @@ class LibofDocument {
     }
 }
 
-export default LibofDocument
+export default LibofBaseDocument
