@@ -2,9 +2,9 @@
     "compilerOptions": {
       "module": "commonjs",
       "outDir": "dist-node",
-      "rootDir": "types",
+      "rootDir": "src",
       "strict": true
     },
-    "include": ["types/**/*.ts"]
+    "include": ["src/**/*.ts"]
   }
   
