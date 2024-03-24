@@ -2,14 +2,22 @@
 
 Library for generating odt and doc documents for JavaScript and TypeScript
 
-## Create new document
+## Installation
+You can install the library via npm:
+```
+npm install libof-doc
+```
+
+## Usage
+
+### Create new document
 ```
 import { LibofDocument } from 'libof-doc';
 
 const document = new LibofDocument("testDocument");
 ```
 
-## Titles
+### Titles
 ```
 import {Lh1, Lh2, Lh3, Lh4} from 'libof-doc'
 
@@ -26,7 +34,7 @@ document.addElement(new Lh4("Title 4"))
 <b>IMPORTANT: </b> All components have the color, background color and font properties.
 
 
-## Text
+### Text
 ```
 import {LParagraph, LTextItalic, LTextBold, LText, lWhiteSpace, lLineBreak} from 'libof-doc'
 
@@ -42,7 +50,7 @@ document.addElement(new LText(lLineBreak))
 
 ```
 
-## Lists
+### Lists
 ```
 import {LOrderedList, LUnorderedList} from 'libof-doc'
 
@@ -66,7 +74,7 @@ const concatList = [
 document.addElement(new LUnorderedList(concatList))
 ```
 
-## Tables
+### Tables
 ```
 import {LTable, LTableElement, LTableRow} from 'libof-doc'
 
@@ -100,7 +108,7 @@ table.addRow(tableRow3)
 document.addElement(table)
 ```
 
-## Images
+### Images
 ```
 import {LImage} from 'libof-doc'
 
@@ -108,8 +116,8 @@ const image = new LImage('https://midu.dev/images/tags/node.png')
 document.addElement(image)
 ```
 
-## HTML
-You can insert HTML in your document :)
+### HTML
+You can insert HTML content into your document: :)
 
 ```
 import {LHtml} from 'libof-doc'
@@ -118,7 +126,8 @@ const html = new LHtml('<p>this text is written in html using <b>Libof doc</b></
 document.addElement(html)
 ```
 
-## Download Document
+### Download Document
+You can transform the document into a blob or download it directly:
 ```
 //you can transform the document into a blob
 const blob = document.documentToBlob()
