@@ -14,9 +14,10 @@ class LibofTableElement extends LibofElement{
         rowspan:number|null = null, 
         color?:string, 
         backgroundColor?:string, 
+        fontSize?:number,
         font?:string
     ) {
-        super('', color, backgroundColor, font);
+        super('', color, backgroundColor, fontSize, font);
         
         this.content = content;
         this.width = width

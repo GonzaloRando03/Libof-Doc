@@ -2,13 +2,15 @@ import { LibofElement } from "./libofElement";
 
 export class LibofImage extends LibofElement{
     uri:string
+    size:number
 
-    constructor(uri:string) {
-        super('', 'black', 'transparent', 'Arial');
+    constructor(uri:string, size:number = 100) {
+        super('', 'black', 'transparent', 12, 'Arial');
         this.uri = uri;
+        this.size = size
     }
     
     getValue(){
-        return `<img style="width:100%;" src="${this.uri}"></img>`
+        return `<img style="width:${this.size}%;" src="${this.uri}"></img>`
     }
 }

@@ -3,8 +3,8 @@ import {LibofElement} from "../../libofElement";
 class LibofOrderedList extends LibofElement{
     elements:LibofElement[]
 
-    constructor(elements:LibofElement[], color?:string, backgroundColor?:string, font?:string) {
-        super('', color, backgroundColor, font);
+    constructor(elements:LibofElement[], color?:string, backgroundColor?:string, fontSize?:number, font?:string) {
+        super('', color, backgroundColor,fontSize, font);
         
         this.elements = elements;
     }

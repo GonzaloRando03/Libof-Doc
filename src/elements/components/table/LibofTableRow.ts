@@ -4,8 +4,8 @@ import LibofTableElement from "./LibofTableElement";
 class LibofTableRow extends LibofElement{
     elements:LibofTableElement[]
 
-    constructor(elements:LibofTableElement[], color?:string, backgroundColor?:string, font?:string) {
-        super('', color, backgroundColor, font);
+    constructor(elements:LibofTableElement[], color?:string, backgroundColor?:string, fontSize?:number, font?:string) {
+        super('', color, backgroundColor,fontSize, font);
         
         this.elements = elements
        
