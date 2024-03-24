@@ -127,6 +127,8 @@ const blob = document.documentToBlob()
 document.download()
 ```
 ## Viewing the document
+![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/6c0dcf05-baee-4185-b5fe-170ced23f895)
+
 
 
   
