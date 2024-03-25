@@ -1,7 +1,7 @@
 import {LibofElement} from "../../libofElement";
 
 class LibofText extends LibofElement{
-    getValue(){
+    override getValue(){
         return `<span ${this.getStyles()} >${this.content}</span>`
     }
 }

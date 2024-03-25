@@ -1,7 +1,7 @@
 import {LibofElement} from "../../libofElement";
 
 class LiobfParagraph extends LibofElement{
-    getValue(){
+    override getValue(){
         return `<p ${this.getStyles()} >${this.content}</p>`
     }
 }

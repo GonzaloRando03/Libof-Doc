@@ -9,7 +9,7 @@ class LibofUnorderedList extends LibofElement{
         this.elements = elements;
     }
 
-    getValue(){
+    override getValue(){
         const elements = this.elements.map(e => "<li>" + e.getValue() + "</li>").join(' ')
         return `<ul ${this.getStyles()} > ${elements}</ul>`
     }

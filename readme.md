@@ -117,7 +117,7 @@ document.addElement(image)
 ```
 
 ### HTML
-You can insert HTML content into your document: :)
+You can insert HTML content into your document :)
 
 ```
 import {LHtml} from 'libof-doc'

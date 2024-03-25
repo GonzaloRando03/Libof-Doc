@@ -26,11 +26,11 @@ class LibofTableElement extends LibofElement{
         this.rowspan = rowspan
     }
 
-    getStyles(){
+    override getStyles(){
         return 'style="width:' + this.width + '%; height:' + this.height + '0px; color:' + this.color + '; background-color:' + this.backgroundColor +'; font-family:' + this.font +'"'
     }
 
-    getValue(){
+    override getValue(){
         const colspan = this.colspan !== null 
             ? 'colspan="' + this.colspan + '"'
             : ''

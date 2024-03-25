@@ -1,7 +1,7 @@
 import { LibofElement } from "./libofElement";
 
 export class LibofHtml extends LibofElement{
-    getValue(){
+    override getValue(){
         return this.content
     }
 }

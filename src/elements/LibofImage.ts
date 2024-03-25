@@ -10,7 +10,7 @@ export class LibofImage extends LibofElement{
         this.size = size
     }
     
-    getValue(){
+    override getValue(){
         return `<img style="width:${this.size}%;" src="${this.uri}"></img>`
     }
 }

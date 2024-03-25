@@ -14,11 +14,11 @@ class LibofTable extends LibofElement{
         this.rows.push(tableRow)
     }
 
-    getStyles(){
+    override getStyles(){
         return 'style="width:100%; color:' + this.color + '; background-color:' + this.backgroundColor +'; font-family:' + this.font +'"'
     }
 
-    getValue(){
+    override getValue(){
         const elements = this.rows.map(e => e.getValue()).join(' ')
         return `<table ${this.getStyles()} > ${elements}</table>`
     }
