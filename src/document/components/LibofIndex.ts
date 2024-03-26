@@ -1,4 +1,4 @@
-import { lLineBreak, lTab } from "../..";
+import { lLineBreak, lTab } from "../../index";
 import { Header } from "../../elements/components/title/Header";
 import { LibofElement } from "../../elements/libofElement";
 
