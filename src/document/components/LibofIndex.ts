@@ -21,12 +21,12 @@ class LibofIndex extends LibofElement{
     override getValue(){
        const indexHeaders = this.elements.map(e => {
             const tabs = this.tabs[e.indexNumber -1]
-            return tabs + '<a href="#' + e.id + '">' + e.content + '</a>' + lLineBreak
+            return tabs + '<a href="#' + e.id + '" style="text-decoration: none;">' + e.content + '</a>' + lLineBreak
        }).join(" ")
 
        const htmlContent = `
        <div>
-            <h3>${this.indexName}</h3>
+            <h2>${this.indexName}</h2>
             ${indexHeaders}
        </div>
        <br></br>
