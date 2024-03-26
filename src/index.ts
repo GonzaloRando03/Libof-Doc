@@ -1,7 +1,5 @@
 //Imports
 import LibofBaseDocument from "./document/libofDocument";
-import { LibofHtml } from "./elements/LibofHtml";
-import { LibofImage } from "./elements/LibofImage";
 import LibofOrderedList from "./elements/components/list/LibofOrderedList";
 import LibofUnorderedList from "./elements/components/list/LibofUnorderedList";
 import LibofTable from "./elements/components/table/LibofTable";
@@ -15,27 +13,33 @@ import LibofH1 from "./elements/components/title/LibofH1";
 import LibofH2 from "./elements/components/title/LibofH2";
 import LibofH3 from "./elements/components/title/LibofH3";
 import LibofH4 from "./elements/components/title/LibofH4";
-
+import { LibofHtml } from "./elements/LibofHtml";
+import { LibofImage } from "./elements/LibofImage";
 
 
 //Exports
-export const LibofDocument = LibofBaseDocument
-export const Lh1 = LibofH1
-export const Lh2 = LibofH2
-export const Lh3 = LibofH3
-export const Lh4 = LibofH4
-export const LParagraph = LiobfParagraph
-export const LTextBold = LibofTextBold
-export const LTextItalic = LibofTextItalic
-export const LText = LibofText
-export const LTable = LibofTable
-export const LTableElement = LibofTableElement
-export const LTableRow = LibofTableRow
-export const LUnorderedList = LibofUnorderedList
-export const LOrderedList = LibofOrderedList
-export const LHtml = LibofHtml
-export const LImage = LibofImage
+const lTab = ' &ensp; '
+const lLineBreak = ' <br> '
+const lWhiteSpace = ' &nbsp; '
 
-export const lTab = ' &ensp; '
-export const lLineBreak = ' <br> '
-export const lWhiteSpace = ' &nbsp; '
+export {
+    LibofBaseDocument as LibofDocument,
+    LibofHtml as LHtml,
+    LibofImage as LImage,
+    LibofOrderedList as LOrderedList,
+    LibofUnorderedList as LUnorderedList,
+    LibofTable as LTable,
+    LibofTableElement as LTableElement,
+    LibofTableRow as LTableRow,
+    LiobfParagraph as LParagraph,
+    LibofText as LText,
+    LibofTextBold as LTextBold,
+    LibofTextItalic as LTextItalic,
+    LibofH1 as Lh1, 
+    LibofH2 as Lh2,
+    LibofH3 as Lh3,
+    LibofH4 as Lh4,
+    lTab,
+    lLineBreak,
+    lWhiteSpace
+  };

@@ -13,6 +13,17 @@ export class LibofElement {
         this.fontSize = fontSize
     }
 
+    generateId() :string {
+        let numeroAleatorio:any = Math.random();
+        numeroAleatorio = String(numeroAleatorio).replace(".", "");
+        
+        while (numeroAleatorio.length < 10) {
+            numeroAleatorio = "385497" + numeroAleatorio;
+        }
+        
+        return numeroAleatorio.slice(0, 10);
+    }
+
     getStyles(){
         const stylesBase = 'style="color:' + this.color + 
         '; background-color:' + this.backgroundColor +
