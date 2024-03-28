@@ -5,7 +5,7 @@ import Libofh4 from "../elements/components/title/LibofH4"
 import LibofFrontPage from "./components/LibofFrontPage"
 import LibofIndex from "./components/LibofIndex"
 import { LibofElement } from "../elements/libofElement"
-import { LFrontPage } from ".."
+import { LFrontPage } from "../index"
 
 class LibofBaseDocument {
     private name:string

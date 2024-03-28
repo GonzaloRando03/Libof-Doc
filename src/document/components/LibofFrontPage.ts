@@ -1,4 +1,4 @@
-import { lPageBreak } from "../..";
+import { lPageBreak } from "../../index";
 import { LibofElement } from "../../elements/libofElement";
 
 class LibofFrontPage extends LibofElement{
