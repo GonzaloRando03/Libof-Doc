@@ -14,7 +14,7 @@ class LibofFrontPage extends LibofElement{
 
     override getValue(){
         const elements = this.elements.map(e => e.getValue()).join(' ')
-        return `<div>
+        return `<div style="font-family: ${this.font}; color: ${this.color};">
             ${elements}
         </div> ${lPageBreak}`
     }

@@ -25,7 +25,7 @@ class LibofIndex extends LibofElement{
        }).join(" ")
 
        const htmlContent = `
-       <div>
+       <div style="font-family: ${this.font}; color: ${this.color};">
             <h2>${this.indexName}</h2>
             ${indexHeaders}
        </div>
