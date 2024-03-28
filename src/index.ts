@@ -13,6 +13,7 @@ import LibofH1 from "./elements/components/title/LibofH1";
 import LibofH2 from "./elements/components/title/LibofH2";
 import LibofH3 from "./elements/components/title/LibofH3";
 import LibofH4 from "./elements/components/title/LibofH4";
+import LibofFrontPage from "./document/components/LibofFrontPage"
 import { LibofHtml } from "./elements/LibofHtml";
 import { LibofImage } from "./elements/LibofImage";
 
@@ -21,9 +22,11 @@ import { LibofImage } from "./elements/LibofImage";
 const lTab = ' &ensp; '
 const lLineBreak = ' <br> '
 const lWhiteSpace = ' &nbsp; '
+const lPageBreak = ' <p style="page-break-before: always"></p> '
 
 export {
     LibofBaseDocument as LibofDocument,
+    LibofFrontPage as LFrontPage,
     LibofHtml as LHtml,
     LibofImage as LImage,
     LibofOrderedList as LOrderedList,
@@ -41,5 +44,6 @@ export {
     LibofH4 as Lh4,
     lTab,
     lLineBreak,
-    lWhiteSpace
+    lWhiteSpace,
+    lPageBreak
   };

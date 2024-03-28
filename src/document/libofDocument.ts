@@ -1,28 +1,36 @@
-import { Header } from "../elements/components/title/Header"
 import Libofh1 from "../elements/components/title/LibofH1"
 import Libofh2 from "../elements/components/title/LibofH2"
 import Libofh3 from "../elements/components/title/LibofH3"
 import Libofh4 from "../elements/components/title/LibofH4"
-import { LibofElement } from "../elements/libofElement"
+import LibofFrontPage from "./components/LibofFrontPage"
 import LibofIndex from "./components/LibofIndex"
+import { LibofElement } from "../elements/libofElement"
+import { LFrontPage } from ".."
 
 class LibofBaseDocument {
     private name:string
+    private margin: number
     private content:string
     private elements:LibofElement[]
     private preHtml:string
     private postHtml:string
     private index:boolean
+    private frontPage: LibofFrontPage | null
     
-    constructor(name:string){
+    constructor(name:string, margin = 1, ){
         this.name = name
+        this.margin = margin
         this.content = ''
         this.elements = []
-        this.preHtml = "<!DOCTYPE html><html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + name +"</title></head><body>"
+        this.preHtml = `<!DOCTYPE html><html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + name +"</title></head><body style="margin-top: ${this.margin}; margin-bottom: ${this.margin};">`
         this.postHtml = "</body></html>"
         this.index = false
+        this.frontPage = null
     }
 
+    addFrontPage(frontPage: LFrontPage){
+        this.frontPage = frontPage
+    }
 
     addElement(element:LibofElement){
         this.elements.push(element)
@@ -49,6 +57,10 @@ class LibofBaseDocument {
 
             const index = new LibofIndex(this.name, elements)
             innerHtml = index.getValue() + innerHtml
+        }
+
+        if (this.frontPage !== null){
+            innerHtml = this.frontPage.getValue() + innerHtml
         }
 
         return this.preHtml + innerHtml + this.postHtml
