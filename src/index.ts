@@ -1,5 +1,4 @@
 //Imports
-import LibofBaseDocument from "./document/libofDocument";
 import LibofOrderedList from "./elements/components/list/LibofOrderedList";
 import LibofUnorderedList from "./elements/components/list/LibofUnorderedList";
 import LibofTable from "./elements/components/table/LibofTable";
@@ -16,6 +15,7 @@ import LibofH4 from "./elements/components/title/LibofH4";
 import LibofFrontPage from "./document/components/LibofFrontPage"
 import { LibofHtml } from "./elements/LibofHtml";
 import { LibofImage } from "./elements/LibofImage";
+import LibofHTMLBaseDocument from "./document/libofHTMLDocument";
 
 
 //Exports
@@ -25,7 +25,7 @@ const lWhiteSpace = ' &nbsp; '
 const lPageBreak = ' <p style="page-break-before: always"></p> '
 
 export {
-    LibofBaseDocument as LibofDocument,
+    LibofHTMLBaseDocument as LibofHTMLDocument,
     LibofFrontPage as LFrontPage,
     LibofHtml as LHtml,
     LibofImage as LImage,

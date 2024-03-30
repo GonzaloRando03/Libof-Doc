@@ -6,24 +6,29 @@ import LibofFrontPage from "./components/LibofFrontPage"
 import LibofIndex from "./components/LibofIndex"
 import { LibofElement } from "../elements/libofElement"
 import { LFrontPage } from "../index"
+import { endStylesODT, postHtml, postODT, preHtml, preODT } from "../utils/docStaticContent"
+import JSZip from "jszip"
+import { manifestRDF, manifestXML, metaXML, mimetype, settingsXML, stylesXML } from "../utils/odtFiles"
 
-class LibofBaseDocument {
+class LibofOdtBaseDocument {
     private name:string
     private margin: number
     private content:string
     private elements:LibofElement[]
-    private preHtml:string
-    private postHtml:string
+    private preXML:string
+    private postXML:string
+    private styleXML:string
     private index:boolean
     private frontPage: LibofFrontPage | null
     
-    constructor(name:string, margin = 1, ){
+    constructor(name:string, margin = 1){
         this.name = name
         this.margin = margin
         this.content = ''
         this.elements = []
-        this.preHtml = `<!DOCTYPE html><html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + name +"</title></head><body style="margin-top: ${this.margin}; margin-bottom: ${this.margin};">`
-        this.postHtml = "</body></html>"
+        this.preXML = preODT
+        this.postXML = postODT
+        this.styleXML = endStylesODT
         this.index = false
         this.frontPage = null
     }
@@ -41,10 +46,12 @@ class LibofBaseDocument {
     }
 
 
-    getHtml(){
+    getXML(){
         let innerHtml = ''
+        let styles = ''
         this.elements.forEach(e => {
-            innerHtml += e.getValue()
+            innerHtml += e.getODTValue()
+            styles += e.getODTStyle()
         })
 
         if (this.index){
@@ -63,19 +70,32 @@ class LibofBaseDocument {
             innerHtml = this.frontPage.getValue() + innerHtml
         }
 
-        return this.preHtml + innerHtml + this.postHtml
+        return this.preXML + styles + this.styleXML + innerHtml + this.postXML
     }
 
-    documentToBlob(){
-        const html = this.getHtml()
-        return new Blob(['\ufeff', html], {
-            type: 'application/msword'
+    async documentToBlob(){
+        const zip = new JSZip();
+
+        const files = [
+            { path: 'META-INF/manifest.xml', content: manifestXML },
+            { path: 'content.xml', content: this.getXML() },
+            { path: 'manifest.rdf', content: manifestRDF },
+            { path: 'meta.xml', content: metaXML },
+            { path: 'mimetype', content: mimetype },
+            { path: 'settings.xml', content: settingsXML },
+            { path: 'styles.xml', content: stylesXML }
+        ];
+
+        files.forEach(file => {
+            zip.file(file.path, file.content);
         });
+
+        return await zip.generateAsync({ type: 'blob' })
     }
 
-    download(){
-        const blob = this.documentToBlob()
-        const filename = this.name + '.docx';
+    async download(){
+        const blob = await this.documentToBlob()
+        const filename = this.name + '.odt';
     
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
@@ -85,4 +105,4 @@ class LibofBaseDocument {
     }
 }
 
-export default LibofBaseDocument
+export default LibofOdtBaseDocument

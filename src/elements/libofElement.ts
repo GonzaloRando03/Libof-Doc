@@ -1,4 +1,5 @@
 export class LibofElement {
+    id:string
     content:string
     color:string
     backgroundColor:string
@@ -11,6 +12,7 @@ export class LibofElement {
         this.backgroundColor = backgroundColor
         this.font = font
         this.fontSize = fontSize
+        this.id = this.generateId()
     }
 
     generateId() :string {
@@ -38,5 +40,13 @@ export class LibofElement {
 
     getValue(){
         return this.content
+    }
+
+    getODTValue(){
+        return this.content
+    }
+
+    getODTStyle(){
+        return ''
     }
 }
