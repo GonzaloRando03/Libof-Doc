@@ -6,9 +6,10 @@ import LibofFrontPage from "./components/LibofFrontPage"
 import LibofIndex from "./components/LibofIndex"
 import { LibofElement } from "../elements/libofElement"
 import { LFrontPage } from "../index"
-import { endStylesODT, postHtml, postODT, preHtml, preODT } from "../utils/docStaticContent"
+import { endStylesODT, postODT, preODT } from "../utils/docStaticContent"
 import JSZip from "jszip"
 import { manifestRDF, manifestXML, metaXML, mimetype, settingsXML, stylesXML } from "../utils/odtFiles"
+import { orderedListStyle, unorderedListStyle } from "../elements/components/list/listStyles"
 
 class LibofOdtBaseDocument {
     private name:string
@@ -70,7 +71,7 @@ class LibofOdtBaseDocument {
             innerHtml = this.frontPage.getValue() + innerHtml
         }
 
-        return this.preXML + styles + this.styleXML + innerHtml + this.postXML
+        return this.preXML + styles + orderedListStyle + unorderedListStyle + this.styleXML + innerHtml + this.postXML
     }
 
     async documentToBlob(){

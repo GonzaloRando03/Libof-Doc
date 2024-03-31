@@ -1,5 +1,4 @@
-import {LibofElement} from "../../libofElement";
-import { orderedListStyle } from "./listStyles";
+import { LibofElement } from "../../libofElement";
 
 class LibofOrderedList extends LibofElement{
     elements:LibofElement[]
@@ -18,15 +17,16 @@ class LibofOrderedList extends LibofElement{
     override getODTValue(): string {
         const elements = this.elements.map(e => "<text:list-item>" + e.getODTValue() + "</text:list-item>").join(' ')
         return `
-        <text:list xml:id="${this.id}" text:style-name="${this.id}">
+        <text:list xml:id="${this.id}" text:style-name="L2">
             ${elements}
         </text:list>`
     }
 
     override getODTStyle(): string {
-        const elements = this.elements.map(e => e.getODTStyle()).join(' ')
-        return elements + orderedListStyle
+        const elements = this.elements.map(e => e.getODTStyleList('L2')).join(' ')
+        return elements 
     }
+
 }
 
 export default LibofOrderedList
