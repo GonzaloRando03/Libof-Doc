@@ -20,6 +20,7 @@ import LibofHTMLBaseDocument from "./document/libofHTMLDocument";
 
 //Exports
 const lTab = ' &ensp; '
+const lODTTab = ' <text:tab/> '
 const lLineBreak = ' <br> '
 const lWhiteSpace = ' &nbsp; '
 const lPageBreak = ' <p style="page-break-before: always"></p> '
@@ -45,5 +46,6 @@ export {
     lTab,
     lLineBreak,
     lWhiteSpace,
-    lPageBreak
+    lPageBreak,
+    lODTTab
   };

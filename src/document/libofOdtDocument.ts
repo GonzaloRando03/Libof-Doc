@@ -64,7 +64,8 @@ class LibofOdtBaseDocument {
             )
 
             const index = new LibofIndex(this.name, elements)
-            innerHtml = index.getValue() + innerHtml
+            innerHtml = index.getODTValue() + innerHtml
+            styles =  index.getODTStyle() + styles
         }
 
         if (this.frontPage !== null){
