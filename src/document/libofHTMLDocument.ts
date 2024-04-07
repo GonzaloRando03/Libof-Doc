@@ -7,6 +7,7 @@ import LibofIndex from "./components/LibofIndex"
 import { LibofElement } from "../elements/libofElement"
 import { LFrontPage } from "../index"
 import { postHtml, preHtml } from "../utils/docStaticContent"
+import LibofPageBreak from "./components/LibofPageBreak"
 
 class LibofHTMLBaseDocument {
     private name:string
@@ -39,6 +40,10 @@ class LibofHTMLBaseDocument {
 
     generateIndex(){
         this.index = true
+    }
+
+    addPageBreak(){
+        this.elements.push(new LibofPageBreak())
     }
 
 

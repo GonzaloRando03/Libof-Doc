@@ -10,6 +10,8 @@ import { endStylesODT, postODT, preODT } from "../utils/docStaticContent"
 import JSZip from "jszip"
 import { manifestRDF, manifestXML, metaXML, mimetype, settingsXML, stylesXML } from "../utils/odtFiles"
 import { orderedListStyle, unorderedListStyle } from "../elements/components/list/listStyles"
+import LibofPageBreak from "./components/LibofPageBreak"
+import { LibofImage } from "../elements/LibofImage"
 
 class LibofOdtBaseDocument {
     private name:string
@@ -46,6 +48,10 @@ class LibofOdtBaseDocument {
         this.index = true
     }
 
+    addPageBreak(){
+        this.elements.push(new LibofPageBreak())
+    }
+
 
     getXML(){
         let innerHtml = ''
@@ -77,6 +83,11 @@ class LibofOdtBaseDocument {
 
     async documentToBlob(){
         const zip = new JSZip();
+
+        const images = this.elements.filter(e => e instanceof LibofImage) as LibofImage[]
+        images.forEach(i => {
+            zip.file(i.zipUri, i.uri, { base64: true });
+        })
 
         const files = [
             { path: 'META-INF/manifest.xml', content: manifestXML },
