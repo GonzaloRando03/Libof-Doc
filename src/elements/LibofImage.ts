@@ -2,6 +2,7 @@ import { LibofElement } from "./libofElement";
 
 export class LibofImage extends LibofElement{
     uri: string
+    base64:string
     width: number
     height: number
     extension: string
@@ -10,6 +11,7 @@ export class LibofImage extends LibofElement{
     constructor(imageBase64:string, width:number = 100, height = 100) {
         super('', 'black', 'transparent', 12, 'Arial');
         this.uri = imageBase64.split("base64,")[1];
+        this.base64 = imageBase64
         this.width = width
         this.height = height
         this.extension = imageBase64.substring("data:image/".length, imageBase64.indexOf(";base64")).toLocaleLowerCase();
@@ -17,7 +19,7 @@ export class LibofImage extends LibofElement{
     }
     
     override getValue(){
-        return `<img style="width:${this.width}%; height:${this.height}%;" src="${this.uri}"></img>`
+        return `<img style="width:${this.width}%; height:${this.height * 10}px;" src="${this.base64}"></img>`
     }
 
     override getODTValue(): string {

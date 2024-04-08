@@ -1,6 +1,6 @@
 {
   "name": "libof-doc",
-  "version": "1.1.9",
+  "version": "1.2.1",
   "description": "Library for generating odt and doc documents for JavaScript",
   "main": "dist-node/index.js",
   "module": "dist-browser/index.js",

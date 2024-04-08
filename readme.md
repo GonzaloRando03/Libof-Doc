@@ -21,13 +21,13 @@ const document = new LibofDocument("testDocument");
 ```
 import {Lh1, Lh2, Lh3, Lh4} from 'libof-doc'
 
-document.addElement(new Lh1("Title 1", 'blue', 'red', 'Serif'))
-document.addElement(new Lh2("Title 2"))
+document.addElement(new Lh1("Title 1", '#7da6fd'))
+document.addElement(new Lh2("Title 2"), '#000000', '#7da6fd', 'Serif')
 document.addElement(new Lh3("Title 3"))
 document.addElement(new Lh4("Title 4"))
 
-// blue => text color
-// red => background color
+// #000000 => text color
+// #7da6fd => background color
 // Serif => font
 ```
 
@@ -38,15 +38,15 @@ document.addElement(new Lh4("Title 4"))
 ```
 import {LParagraph, LTextItalic, LTextBold, LText, lWhiteSpace, lLineBreak} from 'libof-doc'
 
-document.addElement(new LParagraph("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"))
+const p1 = new LParagraph()
 
-document.addElement(new LTextBold('Text bold'))
+p1.addText(new LText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"))
 
-document.addElement(new LText(lWhiteSpace))
+p1.addText(new LTextBold('Text bold'))
 
-document.addElement(new LTextItalic('Text italic'))
+p1.addText(new LTextItalic('Text italic'))
 
-document.addElement(new LText(lLineBreak))
+document.addElement(p1)
 
 ```
 
@@ -55,21 +55,19 @@ document.addElement(new LText(lLineBreak))
 import {LOrderedList, LUnorderedList} from 'libof-doc'
 
 //Simple list
+const p2 = new LParagraph()
+p2.addText(new LText("List element"))
+
 const elementList = [
-    new LText("Element 1"),
-    new LText("Element 2"),
-    new LText("Element 3"),
-    new LText("Element 4")
+    p2, p2, p2, p2
 ]
 document.addElement(new LOrderedList(elementList))
 document.addElement(new LUnorderedList(elementList))
 
 //Concatenated lists
 const concatList = [
-    new LText("Element 1"),
-    new LText("Element 2"),
-    new LText("Element 3"),
-    new LUnorderedList(elementList)
+    p2, p2, p2, p2,
+new LUnorderedList(elementList)
 ]
 document.addElement(new LUnorderedList(concatList))
 ```
@@ -79,26 +77,32 @@ document.addElement(new LUnorderedList(concatList))
 import {LTable, LTableElement, LTableRow} from 'libof-doc'
 
 const table = new LTable()
+
+const p3 = new LParagraph()
+p3.addText(new LTextBold('Table Title'))
+
+const p4 = new LParagraph()
+p4.addText(new LText('Table Element'))
   
 const tableRow1 = new LTableRow([
-    new LTableElement(new LTextBold('Table Element').getValue(), 25, 5),
-    new LTableElement(new LTextBold('Table Element').getValue(), 25, 5),
-    new LTableElement(new LTextBold('Table Element').getValue(), 25, 5),
-    new LTableElement(new LTextBold('Table Element').getValue(), 25, 5),
-], 'black', 'orange')
+    new LTableElement(p3, 5, 1, null, null,'#000000', '#7da6fd'),
+    new LTableElement(p3, 5, 1, null, null,'#000000', '#7da6fd'),
+    new LTableElement(p3, 5, 1, null, null,'#000000', '#7da6fd'),
+    new LTableElement(p3, 5, 1, null, null,'#000000', '#7da6fd'),
+])
 
 const tableRow2 = new LTableRow([
-    new LTableElement("Table Element", 25, 5),
-    new LTableElement("Table Element", 25, 5),
-    new LTableElement("Table Element", 25, 5),
+    new LTableElement(p4, 5, 2),
+    new LTableElement(p4, 5, 2),
+    new LTableElement(p4, 5, 2),
     //This element has rowspan
-    new LTableElement("Table Element", 25, 5, null, 2),
+    new LTableElement(p4, 5, 2, null, 2),
 ])
 
 const tableRow3 = new LTableRow([
     //This element has colspan
-    new LTableElement("Table Element", 25, 5, 2),
-    new LTableElement("Table Element", 25, 5),
+    new LTableElement(p4, 5, 2, 2),
+    new LTableElement(p4, 5, 2),
 ])
 
 table.addRow(tableRow1)
@@ -112,8 +116,35 @@ document.addElement(table)
 ```
 import {LImage} from 'libof-doc'
 
-const image = new LImage('https://midu.dev/images/tags/node.png')
-document.addElement(image)
+//Images with PageBreaks
+document.addPageBreak()
+document.addElement(new LImage(imageBase64, 100, 100))
+```
+
+### Download Document
+You can transform the document into a blob or download it directly:
+```
+//you can transform the document into a blob 
+const blob = await document.documentToBlob() //ODT 
+const docxBlob = await document.documentToDocxBlob() //DOCX
+
+//or you cat download the document 
+await document.download() //ODT
+await document.downloadAsDOCX() //DOCX
+```
+
+### Generate Indexes
+You can generate indexes in your document
+```
+document.generateIndex()
+```
+
+### Add Front Pages
+```
+const frontPage = new LFrontPage()
+frontPage.addElement(new Lh1("Main title"))
+
+document.addFrontPage(frontPage)
 ```
 
 ### HTML
@@ -126,15 +157,7 @@ const html = new LHtml('<p>this text is written in html using <b>Libof doc</b></
 document.addElement(html)
 ```
 
-### Download Document
-You can transform the document into a blob or download it directly:
-```
-//you can transform the document into a blob
-const blob = document.documentToBlob()
 
-//or you cat download the document
-document.download()
-```
 ## Viewing the document
 ![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/6c0dcf05-baee-4185-b5fe-170ced23f895)
 
