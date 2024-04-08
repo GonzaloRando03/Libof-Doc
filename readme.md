@@ -159,7 +159,21 @@ document.addElement(html)
 
 
 ## Viewing the document
-![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/6c0dcf05-baee-4185-b5fe-170ced23f895)
+### Content
+![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/ac1527f5-b622-43b8-bda5-bdddb361df59)
+
+### Image
+![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/2f9f61d5-907b-4aec-b716-8553984141e3)
+
+### Index
+![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/5294023e-ee52-4609-baa3-55b353e973e3)
+
+### Front Page
+![image](https://github.com/GonzaloRando03/Libof-Doc/assets/103594582/500fecc0-cae5-4310-a814-319d56c7c8b9)
+
+
+
+
 
 
 
