@@ -21,10 +21,10 @@ const document = new LibofDocument("testDocument");
 ```
 import {Lh1, Lh2, Lh3, Lh4} from 'libof-doc'
 
-document.addElement(new Lh1("Title 1", '#7da6fd'))
-document.addElement(new Lh2("Title 2"), '#000000', '#7da6fd', 'Serif')
-document.addElement(new Lh3("Title 3"))
-document.addElement(new Lh4("Title 4"))
+document.addElement(new Lh1("1 - Title", '#7da6fd'))
+document.addElement(new Lh2("1.1 - Title", '#000000', '#7da6fd', 'Serif'))
+document.addElement(new Lh3("1.1.1 - Title"))
+document.addElement(new Lh4("1.1.1.1 - Title"))
 
 // #000000 => text color
 // #7da6fd => background color

@@ -85,7 +85,7 @@ class LibofHTMLBaseDocument {
 
     download(){
         const blob = this.documentToBlob()
-        const filename = this.name + '.doc';
+        const filename = this.name + '.docx';
     
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
