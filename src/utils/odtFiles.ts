@@ -353,4 +353,4 @@ export const manifestXML = `<manifest:manifest xmlns:manifest="urn:oasis:names:t
 <manifest:file-entry manifest:full-path="settings.xml" manifest:media-type="text/xml"/>
 <manifest:file-entry manifest:full-path="content.xml" manifest:media-type="text/xml"/>
 <manifest:file-entry manifest:full-path="Thumbnails/thumbnail.png" manifest:media-type="image/png"/>
-</manifest:manifest>`
+`

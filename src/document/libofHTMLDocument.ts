@@ -38,6 +38,10 @@ class LibofHTMLBaseDocument {
         this.elements.push(element)
     }
 
+    setFullElements(elements: LibofElement[]){
+        this.elements = elements
+    }
+
     generateIndex(){
         this.index = true
     }

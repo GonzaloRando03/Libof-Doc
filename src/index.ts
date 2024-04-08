@@ -13,9 +13,9 @@ import LibofH2 from "./elements/components/title/LibofH2";
 import LibofH3 from "./elements/components/title/LibofH3";
 import LibofH4 from "./elements/components/title/LibofH4";
 import LibofFrontPage from "./document/components/LibofFrontPage"
+import LibofMixDocument from "./document/LibofMixDocument";
 import { LibofHtml } from "./elements/LibofHtml";
 import { LibofImage } from "./elements/LibofImage";
-import LibofHTMLBaseDocument from "./document/libofHTMLDocument";
 
 
 //Exports
@@ -26,7 +26,7 @@ const lWhiteSpace = ' &nbsp; '
 const lPageBreak = ' <p style="page-break-before: always"></p> '
 
 export {
-    LibofHTMLBaseDocument as LibofHTMLDocument,
+    LibofMixDocument as LibofDocument,
     LibofFrontPage as LFrontPage,
     LibofHtml as LHtml,
     LibofImage as LImage,

@@ -44,6 +44,10 @@ class LibofOdtBaseDocument {
         this.elements.push(element)
     }
 
+    setFullElements(elements: LibofElement[]){
+        this.elements = elements
+    }
+
     generateIndex(){
         this.index = true
     }
@@ -84,13 +88,19 @@ class LibofOdtBaseDocument {
     async documentToBlob(){
         const zip = new JSZip();
 
+        let manifestObjects = ''
+
         const images = this.elements.filter(e => e instanceof LibofImage) as LibofImage[]
         images.forEach(i => {
             zip.file(i.zipUri, i.uri, { base64: true });
+            manifestObjects += ` <manifest:file-entry manifest:full-path="${i.zipUri}" manifest:media-type="image/${i.extension}"/>`
         })
 
+        
+        const fullManifestXML = manifestXML + manifestObjects + ' </manifest:manifest>'
+
         const files = [
-            { path: 'META-INF/manifest.xml', content: manifestXML },
+            { path: 'META-INF/manifest.xml', content: fullManifestXML },
             { path: 'content.xml', content: this.getXML() },
             { path: 'manifest.rdf', content: manifestRDF },
             { path: 'meta.xml', content: metaXML },
